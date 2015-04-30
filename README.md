@@ -1,2 +1,2 @@
-# simple-twitter-tweet
-Simple twitter block tweet for Drupal
+# simple_twitter_tweet
+Simple twitter tweet block for Drupal
