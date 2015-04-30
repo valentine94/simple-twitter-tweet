@@ -45,7 +45,7 @@ function simple_twitter_tweet_block_view($delta = '') {
       '#markup'   => _simple_twitter_tweet_get_content(),
       '#attached' => array(
         'css' => array(
-          SIMPLE_TWITTER_TWEET_PATH . '/simple_twitter_tweet.css',
+          SIMPLE_TWITTER_TWEET_PATH . '/css/simple_twitter_tweet.min.css',
         ),
       ),
     );
