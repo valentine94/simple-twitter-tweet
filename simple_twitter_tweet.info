@@ -1,0 +1,7 @@
+name = Simple Twitter tweet block
+description = Provide a Twitter tweet block
+core = 7.x
+version = 7.x-1.0-dev
+
+; Config page
+configure = admin/config/simple_twitter_tweet

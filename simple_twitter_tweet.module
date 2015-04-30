@@ -1,0 +1,92 @@
+<?php
+/**
+ * @file
+ * Basic module file.
+ */
+
+define('SIMPLE_TWITTER_TWEET_PATH', drupal_get_path('module', 'simple_twitter_tweet'));
+
+/**
+ * Implements hook_menu().
+ */
+function simple_twitter_tweet_menu() {
+  $items = array();
+  $items['admin/config/simple_twitter_tweet'] = array(
+    'title'            => 'Simple Twitter tweet settings',
+    'description'      => 'Configure the Simple Twitter tweet settings.',
+    'page callback'    => 'drupal_get_form',
+    'page arguments'   => array('simple_twitter_tweet_settings'),
+    'access arguments' => array('administer site configuration'),
+    'file'             => 'admin/simple_twitter_tweet.admin.inc',
+    'file path'        => SIMPLE_TWITTER_TWEET_PATH,
+    'type'             => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function simple_twitter_tweet_block_info() {
+  $blocks['simple_twitter_tweet_block'] = array(
+    'info'  => t('Simple Twitter'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function simple_twitter_tweet_block_view($delta = '') {
+  if ($delta == 'simple_twitter_tweet_block') {
+    $block['subject'] = "";
+    $block['content'] = array(
+      '#markup'   => _simple_twitter_tweet_get_content(),
+      '#attached' => array(
+        'css' => array(
+          SIMPLE_TWITTER_TWEET_PATH . '/simple_twitter_tweet.css',
+        ),
+      ),
+    );
+    return $block;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function simple_twitter_tweet_theme() {
+  return array(
+    'simple_twitter_tweet_block' => array(
+      'template' => 'simple-twitter-tweet-block',
+      'variables' => array(
+        'url'   => NULL,
+        'text'  => NULL,
+      ),
+    ),
+  );
+}
+
+/**
+ * Getting the Simple Twitter block content.
+ *
+ * @return string
+ *   Rendered HTML.
+ */
+function _simple_twitter_tweet_get_content() {
+  return theme('simple_twitter_tweet_block', _simple_twitter_tweet_get_vars());
+}
+
+/**
+ * Build a twitter variables array.
+ *
+ * @return array
+ *   Twitter block variables.
+ */
+function _simple_twitter_tweet_get_vars() {
+  return array(
+    'url'   => urlencode($GLOBALS['base_url'] . url(current_path())),
+    'text'  => urlencode(variable_get('simple_twitter_tweet_text', '')),
+  );
+}

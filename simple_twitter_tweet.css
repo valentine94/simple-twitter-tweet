@@ -1,0 +1,50 @@
+.simple-twitter-tweet a {
+  position: relative;
+  display: inline-block;
+  height: 16px;
+  padding: 2px;
+  border: 1px solid #cccccc;
+  font-size: 11px;
+  color: #333333 !important;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #ffffff;
+  font-weight: bold;
+  background-color: #f8f8f8;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#dedede));
+  background-image: -moz-linear-gradient(top, #ffffff, #dedede);
+  background-image: -o-linear-gradient(top, #ffffff, #dedede);
+  background-image: -ms-linear-gradient(top, #ffffff, #dedede);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  overflow: hidden;
+  margin-top: 3px;
+}
+.simple-twitter-tweet a:hover {
+  border-color: #bbbbbb;
+  background-color: #f8f8f8;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#d9d9d9));
+  background-image: -moz-linear-gradient(top, #f8f8f8, #d9d9d9);
+  background-image: -o-linear-gradient(top, #f8f8f8, #d9d9d9);
+  background-image: -ms-linear-gradient(top, #f8f8f8, #d9d9d9);
+  background-image: linear-gradient(top, #f8f8f8, #d9d9d9);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.simple-twitter-tweet a .btn-icon {
+  position: absolute;
+  width: 16px;
+  height: 13px;
+  top: 50%;
+  left: 3px;
+  margin-top: -7px;
+  background: url('https://twitter.com/favicons/favicon.ico') 1px center no-repeat;
+  background-size: 15px;
+}
+.simple-twitter-tweet a .btn-text {
+  display: inline-block;
+  padding: 0 3px 0 20px;
+  font-family: sans-serif;
+}

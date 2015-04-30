@@ -1,0 +1,12 @@
+<?php
+/**
+ * @file
+ * Contains install/uninstall hooks.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function simple_twitter_tweet_uninstall() {
+  variable_del('simple_twitter_tweet_text');
+}
