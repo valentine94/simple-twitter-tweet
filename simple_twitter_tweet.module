@@ -62,7 +62,6 @@ function simple_twitter_tweet_theme() {
       'template' => 'simple-twitter-tweet-block',
       'variables' => array(
         'url'   => NULL,
-        'text'  => NULL,
       ),
     ),
   );
@@ -75,7 +74,7 @@ function simple_twitter_tweet_theme() {
  *   Rendered HTML.
  */
 function _simple_twitter_tweet_get_content() {
-  return theme('simple_twitter_tweet_block', _simple_twitter_tweet_get_vars());
+  return theme('simple_twitter_tweet_block', _simple_twitter_tweet_get_url());
 }
 
 /**
@@ -84,9 +83,10 @@ function _simple_twitter_tweet_get_content() {
  * @return array
  *   Twitter block variables.
  */
-function _simple_twitter_tweet_get_vars() {
-  return array(
-    'url'   => urlencode($GLOBALS['base_url'] . url(current_path())),
-    'text'  => urlencode(variable_get('simple_twitter_tweet_text', '')),
-  );
+function _simple_twitter_tweet_get_url() {
+  $url = 'https://twitter.com/intent/tweet?url=';
+  $url .= urlencode($GLOBALS['base_url'] . url(current_path()));
+  $url .= '&amp;text=';
+  $url .= urlencode(variable_get('simple_twitter_tweet_text', ''));
+  return array('url' => $url);
 }
