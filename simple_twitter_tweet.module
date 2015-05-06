@@ -4,6 +4,9 @@
  * Basic module file.
  */
 
+/**
+ * Define the module's path.
+ */
 define('SIMPLE_TWITTER_TWEET_PATH', drupal_get_path('module', 'simple_twitter_tweet'));
 
 /**
